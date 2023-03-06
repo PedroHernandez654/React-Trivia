@@ -1,0 +1,243 @@
+.app{
+    height: 100vh;
+    display: flex;
+    background-color: #020230;
+    color: white;
+}
+/*Preguntas y respuesta*/
+.main{
+    width: 75%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #020230),
+    url("./assets/bg.jpg") center;
+    display: flex;
+    flex-direction: column;
+}
+/*Dentro de preguntas y respuestas*/
+.top{
+    height: 50%;
+    position: relative;
+}
+.timer{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 10px;
+    left: 80px;
+}
+/*----------------------*/
+.bottom{
+    height: 50%;
+}
+.trivia{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.question{
+    width:80%;
+    background:linear-gradient(#100241,black);
+    border: 2px solid white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.answers{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.answer{
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    background:linear-gradient(#0e0124,#22074d);
+    border: 1px solid white;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0 10px 20px 10px;
+    cursor: pointer;
+}
+.answer[disabled]{
+    pointer-events: none;
+}
+.answer:hover, 
+.answer.active{
+    background:linear-gradient(#0e0124,mediumblue);
+}
+/*Animación si la respuesta es correcta*/
+.answer.correct{
+    animation: correct 3s ease forwards;
+}
+@keyframes correct{
+    0%,
+    22%,
+    42%{
+        background: mediumblue;
+    }
+    20%,
+    40%,
+    60%{
+        background:linear-gradient(#0e0124,#22074d);
+    }
+    62%,
+    100%{
+        background: green;
+    }
+}
+/*Animación si la respuesta es incorrecta*/
+.answer.wrong{
+    animation: wrong 3s ease forwards;
+}
+@keyframes wrong{
+    0%,
+    22%,
+    42%{
+        background: mediumblue;
+    }
+    20%,
+    40%,
+    60%{
+        background:linear-gradient(#0e0124,#22074d);
+    }
+    62%,
+    100%{
+        background: firebrick;
+    }
+}
+/*Piramide de montos*/
+.pyramid{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.MoneyList{
+    list-style: none;
+    width: 100%;
+    padding:20px;
+}
+.MoneyListItem{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius:7px;
+}
+.MoneyListItem.active{
+    background-color: teal;
+}
+.MoneyListItemNumber{
+    font-size: 18px;
+    font-weight: 100;
+    width: 30%;
+}
+
+.MoneyListItemAmount{
+    font-size: 20px;
+    font-weight: 300;
+}
+.endText{
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.logo{
+    background:url("https://w7.pngwing.com/pngs/140/210/png-transparent-who-wants-to-be-a-millionaire-hd-logo.png") center center/cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: -100px;
+    margin-bottom: 30px;
+}
+.username{
+    margin-bottom: 20px;
+}
+
+/*"LOGIN"*/
+.user{
+    background:url("https://w7.pngwing.com/pngs/140/210/png-transparent-who-wants-to-be-a-millionaire-hd-logo.png") center center/cover;
+    width: 200px;
+    height: 200px;
+    margin-top: -215px;
+    border: 3px solid white;
+    border-radius: 50%;
+    margin-bottom: -80px;
+}
+.start{
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+.startInput{
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: -50px;
+}
+.startInput:focus{
+    outline: none;
+}
+
+.startButton{
+    width: 80%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: aqua;
+    margin-top: -50px;
+}
+.startButton:hover{
+    background-color: white;
+}
+.Incorrecto{
+    color:red;
+    margin: -20px -20px;
+    padding: 0;
+}
+.no{
+    display: none;
+}
+/*Media Querys*/
+@media (max-width:700px) {
+    .main{
+        width: 55vw;
+        height: 100vh;
+    }
+    .pyramid{
+        width: 45vw;
+        height: 100%;
+    }
+}
+
